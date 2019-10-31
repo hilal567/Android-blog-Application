@@ -1,6 +1,7 @@
 package com.example.photoblog;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -181,6 +182,19 @@ try {
             }
         });
 
+
+   //this is the on click listner to when a person presses the comment button
+    holder.blogCommentBtn.setOnClickListener(new View.OnClickListener() {
+       @Override
+        public void onClick(View view) {
+
+           Intent commentIntent = new Intent(context, CommentsActivity.class);
+            commentIntent.putExtra("blog_post_id", blogPostId);
+            context.startActivity(commentIntent);
+
+       }
+  });
+
     }
 
     @Override
@@ -202,6 +216,8 @@ try {
         private ImageView blogLikeBtn;
         private TextView blogLikeCount;
 
+        private ImageView blogCommentBtn;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -210,6 +226,8 @@ try {
 
             //link the like button with the adapter class with the use  of the like id.
             blogLikeBtn = mView.findViewById(R.id.blog_like_btn);
+            blogCommentBtn = mView.findViewById(R.id.blog_comment_icon);
+
 
         }
         //method to get the post description

@@ -104,6 +104,9 @@ public class NewPostActivity extends AppCompatActivity {
 
                 if(!TextUtils.isEmpty(desc) && postImageUri != null){
 
+                    //set the progress bar to visible
+                    newPostProgress.setVisibility(View.VISIBLE);
+
 
                     //generating a random string that will be used to
                     final String randomName = UUID.randomUUID().toString();
